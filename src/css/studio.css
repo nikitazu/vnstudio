@@ -1,0 +1,15 @@
+button {
+  width: 100px;
+}
+
+#stage {
+  border: 1px solid black;
+}
+
+#tools {
+  float: right;
+}
+
+#tools > ul {
+  list-style-type: none;
+}
