@@ -26,12 +26,12 @@ class view.Project extends view.Base
       fontSize: 16
     @canvas.add name
     
-    for own sceneName, sceneObject of @model.scenes
+    for own sceneId, sceneObject of @model.scenes
       sv = new view.Scene @canvas, @model, sceneObject, @
-      @sceneViews[sceneName] = sv
+      @sceneViews[sceneId] = sv
       sv.render()
     
-    for own sceneName, sceneObject of @sceneViews
+    for own sceneId, sceneObject of @sceneViews
       for own connectorName, connectorObject of sceneObject.model.connectors
         cv = new view.SceneConnector @canvas, @root, connectorObject
         sceneObject.connectorViews.push cv
@@ -79,7 +79,7 @@ class view.Scene extends view.Base
           cv.rerender()
       onClick: () =>
         @canvas.tools.currentName.val @model.name
-        @root.currentSceneName = @model.name
+        @root.currentSceneId = @model.id
     
     @addShadowTo body
     @canvas.add shape

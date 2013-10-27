@@ -69,7 +69,7 @@ $('#saveButton').on 'click', (event) ->
 
 $('#loadButton').on 'click', (event) ->
   x.load()
-  p = x.projects['Shangri-La']
+  p = x.projects["25471402-0153-4553-b0b8-b1bbc8eb6401"]
   canvas.clear()
   pv = new view.Project canvas, p
   pv.render()
