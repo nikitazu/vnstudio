@@ -37,6 +37,14 @@ class view.Project extends view.Base
         sceneObject.connectorViews.push cv
         @sceneViews[cv.model.target].connectorViews.push cv
         cv.render()
+  
+  applyCurrentObject: (tools) ->
+    console.log 'applyCurrentObject:start'
+    scene = @model.scenes[@model.currentSceneId]
+    if scene?
+      console.log "current object is #{scene.name}"
+      scene.name = tools.currentName.val()
+    console.log 'applyCurrentObject:end'
 
 
 class view.Scene extends view.Base
