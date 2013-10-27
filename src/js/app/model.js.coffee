@@ -27,8 +27,7 @@ class model.Model
   
   applyCurrentObject: (project, tools) ->
     console.log 'applyCurrentObject:start'
-    p = @projects[project.id]
-    s = p.scenes[p.currentSceneId]
+    s = project.scenes[project.currentSceneId]
     if s?
       console.log "current object is #{s.name}"
       s.name = tools.currentName.val()
