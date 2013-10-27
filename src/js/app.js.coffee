@@ -81,7 +81,10 @@ canvas.tools = {
 
 canvas.tools.currentName.val ''
 
-$('#currentObjectApply').on 'click', (event) -> pv.applyCurrentObject()
+$('#currentObjectApply').on 'click', (event) ->
+  pv.applyCurrentObject()
+  canvas.clear()
+  pv.render()
 
 # =========
 # Rendering

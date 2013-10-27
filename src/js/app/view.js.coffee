@@ -41,9 +41,11 @@ class view.Project extends view.Base
   applyCurrentObject: () ->
     console.log 'applyCurrentObject:start'
     scene = @model.scenes[@model.currentSceneId]
+    sceneView = @sceneViews[@model.currentSceneId]
     if scene?
       console.log "current object is #{scene.name}"
       scene.name = @canvas.tools.currentName.val()
+      sceneView.name.setText scene.name
     console.log 'applyCurrentObject:end'
 
 
@@ -73,11 +75,11 @@ class view.Scene extends view.Base
       fill: 'orange'
       stroke: 'black'
     
-    name = new fabric.Text @model.name,
+    @name = new fabric.Text @model.name,
       fontFamily: 'Comic Sans'
       fontSize: 15
     
-    shape = new fabric.Group [ body, copyButton, name ],
+    shape = new fabric.Group [ body, copyButton, @name ],
       left: @model.left
       top: @model.top
       onMoving: () => 
