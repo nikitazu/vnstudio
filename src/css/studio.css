@@ -2,6 +2,11 @@ button {
   width: 100px;
 }
 
+ul, div {
+  margin: 5px;
+  padding: 5px;
+}
+
 #stage {
   border: 1px solid black;
 }
@@ -10,6 +15,11 @@ button {
   float: right;
 }
 
-#tools > ul {
+#currentObjectTool {
+  border: 1px solid black;
+}
+
+#tools > ul,
+#currentObjectTool > ul {
   list-style-type: none;
 }

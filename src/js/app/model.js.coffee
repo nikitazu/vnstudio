@@ -24,6 +24,15 @@ class model.Model
     for own savedProjectName, savedProjectObject of savedProjects
       @projects[savedProjectName] = model.Project.load savedProjectObject
     console.log 'load:end'
+  
+  applyCurrentObject: (project, tools) ->
+    console.log 'applyCurrentObject:start'
+    p = @projects[project.name]
+    s = p.scenes[p.currentSceneName]
+    if s?
+      console.log "current object is #{s.name}"
+      #s.name = tools.currentName.val()
+    console.log 'applyCurrentObject:end'
 
 
 class model.Project

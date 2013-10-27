@@ -8,7 +8,7 @@ class view.Base
     console.log "#{@constructor.name}::render #{@model.name}"
   
   addShadowTo: (shape) ->
-    shape.setShadow { color: '003333', offsetX: 10, offsetY: 10, blur: 20 }
+    shape.setShadow { color: '#003333', offsetX: 10, offsetY: 10, blur: 20 }
 
 
 class view.Project extends view.Base
@@ -48,8 +48,8 @@ class view.Scene extends view.Base
     super()
     
     body = new fabric.Rect
-      fill: '00CCCC'
-      stroke: '003333'
+      fill: '#00CCCC'
+      stroke: '#003333'
       strokeWidth: 2
       width: 200
       height: 50
@@ -77,6 +77,9 @@ class view.Scene extends view.Base
         @model.top = shape.getTop()
         for cv in @connectorViews
           cv.rerender()
+      onClick: () =>
+        @canvas.tools.currentName.val @model.name
+        @root.currentSceneName = @model.name
     
     @addShadowTo body
     @canvas.add shape
@@ -93,8 +96,8 @@ class view.SceneConnector extends view.Base
     @s2 = @root.scenes[@model.target]
     
     @shape = new fabric.Line [ @getX1(), @getY1(), @getX2(), @getY2() ],
-      fill: '003333'
-      stroke: '003333'
+      fill: '#003333'
+      stroke: '#003333'
       strokeWidth: 5
       selectable: false
     

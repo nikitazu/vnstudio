@@ -43,7 +43,6 @@ p.addScene ss2
 ss1.connectToNext ss2
 
 pv = new view.Project canvas, p
-pv.render()
 
 # =======
 # Toolbox
@@ -74,5 +73,20 @@ $('#loadButton').on 'click', (event) ->
   canvas.clear()
   pv = new view.Project canvas, p
   pv.render()
+  console.log 'load done'
 
+canvas.tools = {
+  currentName: $('#currentName')
+}
+
+canvas.tools.currentName.val ''
+
+$('#currentObjectApply').on 'click', (event) ->
+  x.applyCurrentObject pv.model, canvas.tools
+
+# =========
+# Rendering
+# =========
+
+pv.render()
 
